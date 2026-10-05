@@ -1,0 +1,97 @@
+<h1>Quản lý sách</h1>
+
+<form action="/books" method="POST">
+
+    <div>
+        <label>Mã sản phẩm:</label>
+        <input
+            type="text"
+            name="productCode"
+            placeholder="Ví dụ: 456001"
+            required
+        >
+    </div>
+
+    <br>
+
+    <div>
+        <label>Tên sách:</label>
+        <input
+            type="text"
+            name="name"
+            placeholder="Tên sách"
+            required
+        >
+    </div>
+
+    <br>
+
+    <div>
+        <label>Giá:</label>
+        <input
+            type="number"
+            name="price"
+            placeholder="100000"
+            required
+        >
+    </div>
+
+    <br>
+
+    <button type="submit">
+        Thêm sách
+    </button>
+
+</form>
+
+<hr>
+
+<h2>Danh sách sách</h2>
+
+<table border="1" cellpadding="10">
+
+    <thead>
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sách</th>
+            <th>Giá gốc</th>
+            <th>VAT</th>
+            <th>Giá sau thuế</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {{#each books}}
+
+        <tr>
+            <td>{{this.productCode}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.originalPrice}}</td>
+            <td>{{this.vatRate}}%</td>
+            <td>{{this.finalPrice}}</td>
+        </tr>
+
+        {{/each}}
+
+    </tbody>
+
+</table>
+
+<hr>
+
+<footer>
+
+    <p>
+        Họ tên: {{fullName}}
+    </p>
+
+    <p>
+        MSSV: {{mssv}}
+    </p>
+
+    <p>
+        VAT áp dụng: {{vat}}%
+    </p>
+
+</footer>
